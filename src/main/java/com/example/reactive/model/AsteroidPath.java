@@ -12,12 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class AsteroidPath {
-    // {
-    // "fromPlanet": "Juptr",
-    // "toPlanet": "Earth",
-    // "fromDate": "1917-04-30",
-    // "toDate": "1930-06-01"
-    // },
 
     private String fromPlanet;
     private String toPlanet;

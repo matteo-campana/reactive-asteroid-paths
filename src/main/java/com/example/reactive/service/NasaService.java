@@ -22,14 +22,6 @@ public class NasaService {
     // "https://api.nasa.gov/neo/rest/v1/neo/{asteroidId}?api_key={apiKey}"
     private final String apiUrl = "https://api.nasa.gov/neo/rest/v1/neo/";
 
-    // public Map<String, Object> getNasaData() {
-    // RestTemplate restTemplate = new RestTemplate();
-    // String url = UriComponentsBuilder.fromHttpUrl(apiUrl)
-    // .queryParam("api_key", apiKey)
-    // .toUriString();
-    // return restTemplate.getForObject(url, Map.class);
-    // }
-
     @Cacheable("nasaDataCache")
     public Mono<JsonNode> getAsteroidData(String asteroidId) {
 

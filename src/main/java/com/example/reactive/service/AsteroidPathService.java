@@ -23,10 +23,14 @@ public class AsteroidPathService {
     @Autowired
     private NasaService nasaService;
 
-    @Cacheable("AsteroidPathCache")
+    @Cacheable("AsteroidPathsCache")
     public Flux<AsteroidPath> getAsteroidPaths(String asteroidId, LocalDate fromDate, LocalDate toDate) {
 
+        System.out.println("AsteroidPathService.getAsteroidPaths()");
+
         Mono<JsonNode> asteroidDataJson = nasaService.getAsteroidData(asteroidId);
+
+        System.out.println("AsteroidPathService.getAsteroidPaths() - asteroidDataJson: " + asteroidDataJson);
 
         return asteroidDataJson.map(nasaData -> MapNasaDataToAsteroidPathResponse(nasaData, fromDate, toDate))
                 .flatMapMany(Flux::fromIterable);
@@ -47,7 +51,7 @@ public class AsteroidPathService {
                         .closeApproachDate(closeApproachDate)
                         .orbitingBody(close_approach.get("orbiting_body").asText())
                         .build();
-
+                System.out.println("Asteroid Passage:\n" + asteroidPassage.toString());
                 asteroidPassages.add(asteroidPassage);
             }
         }
@@ -55,14 +59,21 @@ public class AsteroidPathService {
         // sort in ascending order the asteroidPassages by closeApproachDate
         asteroidPassages.sort((a, b) -> a.getCloseApproachDate().compareTo(b.getCloseApproachDate()));
 
+        System.out.println("AsteroidPathService.MapNasaDataToAsteroidPathResponse() - asteroidPassages.size(): "
+                + asteroidPassages.size());
+
         LocalDate previousCloseApproachDate = null;
         String previousOrbitingBody = null;
         List<AsteroidPath> asteroidPaths = new ArrayList<>();
 
         for (AsteroidPassage asteroidPassage : asteroidPassages) {
-            if (previousOrbitingBody == null || !previousOrbitingBody.equals(asteroidPassage.getOrbitingBody())) {
+            if (previousOrbitingBody == null) {
                 previousOrbitingBody = asteroidPassage.getOrbitingBody();
                 previousCloseApproachDate = asteroidPassage.getCloseApproachDate();
+                continue;
+            }
+
+            if (previousOrbitingBody.equals(asteroidPassage.getOrbitingBody())) {
                 continue;
             }
 
@@ -74,6 +85,8 @@ public class AsteroidPathService {
                         .toDate(asteroidPassage.getCloseApproachDate())
                         .build();
 
+                System.out.println("Asteroid Path:\n" + asteroidPath.toString());
+
                 asteroidPaths.add(asteroidPath);
 
                 previousCloseApproachDate = asteroidPassage.getCloseApproachDate();
@@ -82,9 +95,13 @@ public class AsteroidPathService {
 
         }
 
+        System.out.println("AsteroidPathService.MapNasaDataToAsteroidPathResponse()");
+        System.out.println(asteroidPaths.size() + " asteroid paths found.");
+
         return asteroidPaths;
     }
 
+    @SuppressWarnings("unused")
     private JsonNode MapNasaDataToAsteroidPathResponseJson(JsonNode nasaData, LocalDate fromDate, LocalDate toDate) {
 
         List<AsteroidPath> asteroidPaths = MapNasaDataToAsteroidPathResponse(nasaData, fromDate, toDate);
@@ -96,6 +113,7 @@ public class AsteroidPathService {
             resultjsonNode = mapper.readTree(json);
         } catch (JsonProcessingException e) {
             // Handle the exception here, e.g. log the error or throw a custom exception
+            e.printStackTrace();
         }
 
         return resultjsonNode;
