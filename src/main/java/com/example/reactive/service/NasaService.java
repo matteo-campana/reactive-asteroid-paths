@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.Cacheable;
 
 @Service
 public class NasaService {
+
     @Value("${apiKey}")
     private String apiKey;
 
@@ -30,7 +31,8 @@ public class NasaService {
     @Cacheable("nasaDataCache")
     public JsonNode getNasaData(String asteroidId) {
 
-        System.out.println("Fetching data from NASA API for asteroidId: " + asteroidId);
+        // System.out.println("Fetching data from NASA API for asteroidId: " +
+        // asteroidId);
 
         String uri = apiUrl + "/" + asteroidId;
 

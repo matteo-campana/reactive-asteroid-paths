@@ -1,4 +1,4 @@
-package com.example.reactive.dao;
+package com.example.reactive.model;
 
 import java.time.LocalDate;
 
