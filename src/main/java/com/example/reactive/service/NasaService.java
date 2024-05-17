@@ -7,6 +7,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import reactor.core.publisher.Mono;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 
@@ -29,7 +31,7 @@ public class NasaService {
     // }
 
     @Cacheable("nasaDataCache")
-    public JsonNode getNasaData(String asteroidId) {
+    public Mono<JsonNode> getNasaData(String asteroidId) {
 
         // System.out.println("Fetching data from NASA API for asteroidId: " +
         // asteroidId);
@@ -49,7 +51,7 @@ public class NasaService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return jsonNode;
+        return Mono.just(jsonNode);
     }
 
     private JsonNode MapNasaDataToAsteroidPathResponse(JsonNode nasaData) {

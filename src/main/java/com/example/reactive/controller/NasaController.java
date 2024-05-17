@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.reactive.service.NasaService;
 import com.fasterxml.jackson.databind.JsonNode;
 
+import reactor.core.publisher.Mono;
+
 @RestController
 @RequestMapping("/api")
 public class NasaController {
@@ -24,7 +26,7 @@ public class NasaController {
 
     @Cacheable("neo")
     @GetMapping("/neo/{asteroidId}")
-    public JsonNode getNeoData(
+    public Mono<JsonNode> getNeoData(
             @PathVariable String asteroidId) {
         return nasaService.getNasaData(asteroidId);
     }
