@@ -28,6 +28,6 @@ public class NasaController {
     @GetMapping("/neo/{asteroidId}")
     public Mono<JsonNode> getNeoData(
             @PathVariable String asteroidId) {
-        return nasaService.getNasaData(asteroidId);
+        return nasaService.getAsteroidData(asteroidId);
     }
 }

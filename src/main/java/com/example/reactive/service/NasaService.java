@@ -31,7 +31,7 @@ public class NasaService {
     // }
 
     @Cacheable("nasaDataCache")
-    public Mono<JsonNode> getNasaData(String asteroidId) {
+    public Mono<JsonNode> getAsteroidData(String asteroidId) {
 
         // System.out.println("Fetching data from NASA API for asteroidId: " +
         // asteroidId);
@@ -52,9 +52,5 @@ public class NasaService {
             e.printStackTrace();
         }
         return Mono.just(jsonNode);
-    }
-
-    private JsonNode MapNasaDataToAsteroidPathResponse(JsonNode nasaData) {
-        return null;
     }
 }
