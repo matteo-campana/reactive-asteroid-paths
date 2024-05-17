@@ -24,10 +24,10 @@ public class NasaController {
     // return nasaService.getNasaData();
     // }
 
-    @Cacheable("neo")
-    @GetMapping("/neo/{asteroidId}")
-    public Mono<JsonNode> getNeoData(
-            @PathVariable String asteroidId) {
-        return nasaService.getAsteroidData(asteroidId);
-    }
+    // @Cacheable("neo")
+    // @GetMapping("/neo/{asteroidId}")
+    // public Mono<JsonNode> getNeoData(
+    // @PathVariable String asteroidId) {
+    // return nasaService.getAsteroidData(asteroidId);
+    // }
 }
