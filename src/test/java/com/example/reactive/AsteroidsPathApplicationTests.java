@@ -10,4 +10,9 @@ class AsteroidsPathApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void testMain() {
+
+	}
+
 }
