@@ -33,3 +33,4 @@ build/
 .vscode/
 src/main/resources/application.properties
 data/sbdb_query_results.csv
+src/test/resources/application-test.properties

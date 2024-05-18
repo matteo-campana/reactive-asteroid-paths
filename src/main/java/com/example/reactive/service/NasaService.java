@@ -7,12 +7,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import reactor.core.publisher.Mono;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 
 @Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class NasaService {
 
     @Value("${apiKey}")

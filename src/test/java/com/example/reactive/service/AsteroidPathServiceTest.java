@@ -1,20 +1,23 @@
 package com.example.reactive.service;
 
-import com.example.reactive.model.AsteroidPath;
-import com.fasterxml.jackson.databind.JsonNode;
+import static org.mockito.Mockito.when;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.core.io.ClassPathResource;
+
+import com.example.reactive.model.AsteroidPath;
+import com.fasterxml.jackson.databind.JsonNode;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
-
-import java.time.LocalDate;
-import java.util.Collections;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class AsteroidPathServiceTest {
@@ -31,19 +34,23 @@ public class AsteroidPathServiceTest {
     @Test
     void testGetAsteroidPaths() {
         String asteroidId = "3542519";
-        LocalDate fromDate = LocalDate.now();
-        LocalDate toDate = LocalDate.now().plusDays(1);
-
-        JsonNode close_approach_data = mock(JsonNode.class);
-        when(jsonNode.get("close_approach_data")).thenReturn(close_approach_data);
-        when(close_approach_data.iterator()).thenReturn(Collections.emptyIterator());
+        LocalDate fromDate = LocalDate.of(2000, 1, 1);
+        LocalDate toDate = LocalDate.of(2024, 1, 1);
 
         when(nasaService.getAsteroidData(asteroidId)).thenReturn(Mono.just(jsonNode));
+
+        // Load the mock response from nasa-response.json
+        String jsonResponse = new String(
+                Files.readAllBytes(Paths.get(new ClassPathResource("api-response.json").getURI())));
 
         Flux<AsteroidPath> result = asteroidPathService.getAsteroidPaths(asteroidId, fromDate, toDate);
 
         StepVerifier.create(result)
-                .expectNextCount(0)
-                .verifyComplete();
+                .thenRequest(5)
+                .expectNextCount(5)
+                .thenCancel()
+                .verify();
+        // .verifyComplete();
+
     }
 }
