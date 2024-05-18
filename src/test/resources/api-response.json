@@ -1,86 +1,88 @@
-[
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Merc",
-    "fromDate": "2000-08-28",
-    "toDate": "2001-05-03"
-  },
-  {
-    "fromPlanet": "Merc",
-    "toPlanet": "Earth",
-    "fromDate": "2001-05-03",
-    "toDate": "2001-08-06"
-  },
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Venus",
-    "fromDate": "2001-08-06",
-    "toDate": "2002-01-05"
-  },
-  {
-    "fromPlanet": "Venus",
-    "toPlanet": "Earth",
-    "fromDate": "2002-01-05",
-    "toDate": "2002-08-06"
-  },
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Venus",
-    "fromDate": "2002-08-06",
-    "toDate": "2008-10-11"
-  },
-  {
-    "fromPlanet": "Venus",
-    "toPlanet": "Earth",
-    "fromDate": "2008-10-11",
-    "toDate": "2009-09-01"
-  },
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Merc",
-    "fromDate": "2009-09-01",
-    "toDate": "2014-12-04"
-  },
-  {
-    "fromPlanet": "Merc",
-    "toPlanet": "Venus",
-    "fromDate": "2014-12-04",
-    "toDate": "2015-07-19"
-  },
-  {
-    "fromPlanet": "Venus",
-    "toPlanet": "Earth",
-    "fromDate": "2015-07-19",
-    "toDate": "2015-07-30"
-  },
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Merc",
-    "fromDate": "2015-07-30",
-    "toDate": "2016-08-13"
-  },
-  {
-    "fromPlanet": "Merc",
-    "toPlanet": "Earth",
-    "fromDate": "2016-08-13",
-    "toDate": "2018-09-03"
-  },
-  {
-    "fromPlanet": "Earth",
-    "toPlanet": "Merc",
-    "fromDate": "2018-09-03",
-    "toDate": "2019-12-30"
-  },
-  {
-    "fromPlanet": "Merc",
-    "toPlanet": "Venus",
-    "fromDate": "2019-12-30",
-    "toDate": "2022-04-25"
-  },
-  {
-    "fromPlanet": "Venus",
-    "toPlanet": "Earth",
-    "fromDate": "2022-04-25",
-    "toDate": "2022-08-25"
-  }
-]
+{
+  "data": [
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Merc",
+      "fromDate": "2000-08-28",
+      "toDate": "2001-05-03"
+    },
+    {
+      "fromPlanet": "Merc",
+      "toPlanet": "Earth",
+      "fromDate": "2001-05-03",
+      "toDate": "2001-08-06"
+    },
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Venus",
+      "fromDate": "2001-08-06",
+      "toDate": "2002-01-05"
+    },
+    {
+      "fromPlanet": "Venus",
+      "toPlanet": "Earth",
+      "fromDate": "2002-01-05",
+      "toDate": "2002-08-06"
+    },
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Venus",
+      "fromDate": "2002-08-06",
+      "toDate": "2008-10-11"
+    },
+    {
+      "fromPlanet": "Venus",
+      "toPlanet": "Earth",
+      "fromDate": "2008-10-11",
+      "toDate": "2009-09-01"
+    },
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Merc",
+      "fromDate": "2009-09-01",
+      "toDate": "2014-12-04"
+    },
+    {
+      "fromPlanet": "Merc",
+      "toPlanet": "Venus",
+      "fromDate": "2014-12-04",
+      "toDate": "2015-07-19"
+    },
+    {
+      "fromPlanet": "Venus",
+      "toPlanet": "Earth",
+      "fromDate": "2015-07-19",
+      "toDate": "2015-07-30"
+    },
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Merc",
+      "fromDate": "2015-07-30",
+      "toDate": "2016-08-13"
+    },
+    {
+      "fromPlanet": "Merc",
+      "toPlanet": "Earth",
+      "fromDate": "2016-08-13",
+      "toDate": "2018-09-03"
+    },
+    {
+      "fromPlanet": "Earth",
+      "toPlanet": "Merc",
+      "fromDate": "2018-09-03",
+      "toDate": "2019-12-30"
+    },
+    {
+      "fromPlanet": "Merc",
+      "toPlanet": "Venus",
+      "fromDate": "2019-12-30",
+      "toDate": "2022-04-25"
+    },
+    {
+      "fromPlanet": "Venus",
+      "toPlanet": "Earth",
+      "fromDate": "2022-04-25",
+      "toDate": "2022-08-25"
+    }
+  ]
+}
