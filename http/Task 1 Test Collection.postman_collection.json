@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "e16a2926-0743-4865-935c-cab52ea8aa8a",
+		"name": "Task 1 Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35000935"
+	},
+	"item": [
+		{
+			"name": "Test 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/stream+json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/fabrick/v1.0/asteroids/3542519/paths?fromDate=2000-01-01&toDate=2024-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabrick",
+						"v1.0",
+						"asteroids",
+						"3542519",
+						"paths"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2000-01-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2024-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test no parameters",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/stream+json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/fabrick/v1.0/asteroids/3542519/paths",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabrick",
+						"v1.0",
+						"asteroids",
+						"3542519",
+						"paths"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2000-01-01",
+							"disabled": true
+						},
+						{
+							"key": "toDate",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test empty fromDate",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/stream+json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/fabrick/v1.0/asteroids/3542519/paths?toDate=2024-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabrick",
+						"v1.0",
+						"asteroids",
+						"3542519",
+						"paths"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2000-01-01",
+							"disabled": true
+						},
+						{
+							"key": "toDate",
+							"value": "2024-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test empty toDate",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/stream+json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/fabrick/v1.0/asteroids/3542519/paths?fromDate=2000-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabrick",
+						"v1.0",
+						"asteroids",
+						"3542519",
+						"paths"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2000-01-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2024-01-01",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
