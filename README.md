@@ -1,7 +1,10 @@
+# Fabrick Coding Challenge Task 1 - Asteroids Path
 
-# Fabrick Asteroids Path Challenge
+<div align="center">
+  <img src="https://api.nasa.gov/assets/img/favicons/favicon-192.png" alt="nasa logo" style="max-height: 300px;">
+</div>
 
-This project is a REST API that provides an end point to retrieve the path of an asteroid as it passes through the solar system. The API is a Spring Boot and Java 22 application development project. Unit testing of the service layer using JUnit and Mockito is also included in the project. To reduce the number of requests to the NASA API, the project uses Redis as a cache to store the asteroid data.
+This project is a REST API that provides an endpoint to retrieve the path of an asteroid as it passes through the solar system. The API is a Spring Boot and Java 22 application development project. The project also includes unit testing of the service layer using JUnit and Mockito. To reduce the number of requests to the [NASA API](https://api.nasa.gov/), the project uses Redis as a cache to store the asteroid data.
 
 ## Configuration
 
