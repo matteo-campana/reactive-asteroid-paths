@@ -11,6 +11,14 @@ This project is a REST API that provides an endpoint to retrieve the path of an 
 - **Java 22**
 - **Apache Maven 3.9.6**
 - **Redis Stack** running on localhost:6379 (default configuration) (Docker is recommended)
+  
+### Redis docker image configuration
+
+[Redis Docker documentation](https://redis.io/learn/operate/orchestration/docker)
+
+```shell
+$ docker run -d --name my-redis-stack -p 6379:6379  redis/redis-stack-server:latest
+```
 
 ## Test
 
@@ -21,13 +29,7 @@ This project is a REST API that provides an endpoint to retrieve the path of an 
 
 
 
-### Redis docker image configuration
 
-[Redis Docker documentation](https://redis.io/learn/operate/orchestration/docker)
-
-```shell
-$ docker run -d --name my-redis-stack -p 6379:6379  redis/redis-stack-server:latest
-```
 
 ## Task 1 - Asteroids path
 
